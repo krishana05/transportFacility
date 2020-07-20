@@ -1,0 +1,92 @@
+<div class="home-section">
+  <h1>Add a Ride</h1>
+
+  <form>
+    <div class="form-group">
+      <label for="empId">Employer ID</label>
+      <input
+        class="form-control"
+        [(ngModel)]="rideObj.empId"
+        type="text"
+        id="empId"
+        name="empId"
+      />
+    </div>
+    <div class="form-group">
+      <label for="vNumber">Vehicle Type</label>
+      <select
+        class="form-control"
+        id="vNumber"
+        name="vNumber"
+        [(ngModel)]="rideObj.vehicleType"
+        (ngModelChange)="vTypeChanged($event)"
+      >
+        <option *ngFor="let vType of vehicleType" [ngValue]="vType">{{
+          vType
+        }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="vNumber">Vehicle Number</label>
+      <input
+        class="form-control"
+        type="text"
+        id="vNumber"
+        name="vNumber"
+        [(ngModel)]="rideObj.vehicleNumber"
+      />
+    </div>
+    <div class="form-group">
+      <label for="vSeats">Vacant Seats</label>
+      <input
+        class="form-control"
+        type="number"
+        id="vSeats"
+        name="vSeats"
+        [(ngModel)]="rideObj.vacantSeats"
+      />
+    </div>
+    <div class="form-group">
+      <label for="pickTime">Pick up time</label>
+      <input
+        class="form-control"
+        type="time"
+        id="pickTime"
+        name="pickTime"
+        [(ngModel)]="rideObj.time"
+      />
+    </div>
+    <div class="form-group">
+      <label for="pickPoint">Pick up point</label>
+      <input
+        class="form-control"
+        type="text"
+        id="pickPoint"
+        name="pickPoint"
+        [(ngModel)]="rideObj.pickupPoint"
+      />
+    </div>
+    <div class="form-group">
+      <label for="dest">Destination</label>
+      <input
+        class="form-control"
+        type="text"
+        id="dest"
+        name="dest"
+        [(ngModel)]="rideObj.destination"
+      />
+    </div>
+    <br />
+    <div class="form-group">
+      <input class="button" type="reset" value="Reset" />
+    </div>
+    <div class="form-group">
+      <input
+        (click)="saveData($event)"
+        class="button"
+        type="submit"
+        value="Submit"
+      />
+    </div>
+  </form>
+</div>

@@ -1,0 +1,40 @@
+<div class="tableContainer">
+  <div>
+    <input
+      class="form-control"
+      placeholder="Search for any column"
+      type="text"
+      [(ngModel)]="input"
+    />
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let tab of tabs">{{ tab }}</th>
+        <th *ngIf="showAction">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ride of data | filter: input">
+        <td>{{ ride.id }}</td>
+        <td>{{ ride.empId }}</td>
+        <td>{{ ride.vehicleType }}</td>
+        <td>{{ ride.vehicleNumber }}</td>
+        <td>{{ ride.vacantSeats }}</td>
+        <td>{{ ride.time }}</td>
+        <td>{{ ride.pickupPoint }}</td>
+        <td>{{ ride.destination }}</td>
+        <td *ngIf="showAction">
+          <button (click)="bookRide(ride)">Book</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- No data -->
+  <div style="text-align: center; padding-top: 100px;" *ngIf="data.length == 0">
+    <p>
+      No rides are available, Please add a ride from
+      <a style="color: red;" href="/home">here</a>
+    </p>
+  </div>
+</div>
